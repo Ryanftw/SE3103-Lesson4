@@ -2,20 +2,19 @@ package model.idemo;
 
 import java.awt.image.BufferedImage;
 import java.awt.Rectangle;
+public abstract class Animal implements ISound, IRender {
 
-public abstract class Vehicle implements ISound, IRender {
-    
     private int x; 
     private int y; 
-    private String make;
-    private double price; 
-    private BufferedImage image; 
+    private String name; 
+    private int age; 
+    private BufferedImage image;
 
-    public Vehicle(int x, int y, String make, double price) {
+    public Animal(int x, int y, String name, int age) {
         this.x = x; 
         this.y = y; 
-        this.make = make; 
-        this.price = price; 
+        this.name = name; 
+        this.age = age; 
     }
 
     public int getX() {
@@ -24,23 +23,24 @@ public abstract class Vehicle implements ISound, IRender {
     public int getY() {
         return y;
     }
-    public String getMake() {
-        return make;
+    public String getName() {
+        return name;
     }
-    public double getPrice() {
-        return price;
+    public int getAge() {
+        return age;
     }
 
     public BufferedImage getImage() {
         return image;
     }
+
     public void setImage(BufferedImage image) {
         this.image = image;
     }
 
     @Override
     public String toString() {
-        return "Vehicle at (" + x + ", " + y + ") " + make + " $" + price; 
+        return "Animal at (" + x + ", " + y + ") name = " + name + ", age = " + age; 
     }
 
     @Override
@@ -53,4 +53,5 @@ public abstract class Vehicle implements ISound, IRender {
         x += dx; 
         y += dy; 
     }
+    
 }

@@ -1,13 +1,16 @@
 package model.idemo;
 
+import java.awt.Graphics2D;
+import java.awt.Color;
+
 public class Airplane extends Vehicle {
-    private int capacity; 
+    private int capacity;
 
     public Airplane(int x, int y, String make, double price, int capacity) {
-        super(x, y, make, price); 
-        this.capacity = capacity; 
+        super(x, y, make, price);
+        this.capacity = capacity;
     }
-    
+
     public int getCapacity() {
         return capacity;
     }
@@ -15,5 +18,17 @@ public class Airplane extends Vehicle {
     @Override
     public String toString() {
         return "[Airplane] " + super.toString() + " capacity = " + capacity;
+    }
+
+    @Override
+    public String getSound() {
+        return "[Airplane] Sonic Boooo ~~~~ m";
+    }
+
+    @Override
+    public void render(Graphics2D g2) {
+        g2.drawImage(getImage(), null, getX(), getY());
+        g2.setColor(Color.red);
+        g2.drawString("capacity="+capacity, getX(), getY());
     }
 }
